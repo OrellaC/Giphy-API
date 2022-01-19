@@ -9,10 +9,9 @@ function App() {
 
 
   const handleClick = () => {
-    e.preventDefault()
 
     axios.get('https://api.giphy.com/v1/gifs/random?api_key=bhjTu6l5hxEEJkzwqsfarzGbMA6SCFBG&tag=&rating=g')
-      .then(res => setData(res.data.data.image.original.url))
+      .then(res => setData(res.data.data.images.original.url))
       .catch(err => console.log(err))
   }
 
@@ -21,9 +20,9 @@ function App() {
 
   return (
 
-    <div className="App">
+    <div className="container">
       <header className="App-header">
-        <h1>Hey</h1>
+        <h1>Gif Generator</h1>
 
         {/* On Button click make an API call and retrieve/render a single random GIF */}
         <button onClick={handleClick}>Click for Random Gif</button>
